@@ -3,15 +3,14 @@ resource:
     shortName: ai-chats
     description: 'Sends a message to an LLM through AiFoundation and returns the answer. The conversation reference gives the LLM memory.'
 
-    processor: SprykerAcademy\Glue\HelloAi\Api\Storefront\Processor\AiChatsStorefrontProcessor
+    # TODO-1: Point API Platform at the class that handles the request.
+    # Hint-1: The key is "processor" and the value is the fully qualified class name of AiChatsStorefrontProcessor.
+    # Hint-2: A GET resource uses "provider" instead. Compare vendor/spryker/agent-auth-rest-api/resources/api/storefront/agent-customer-impersonation-access-tokens.resource.yml
     paginationEnabled: false
 
-    operations:
-        - type: Post
-          uriTemplate: '/ai-chats'
-          description: 'Sends one chat message to the LLM and returns its answer.'
-          normalizationContext:
-              gen_id: false
+    # TODO-2: Declare one operation of type "Post" with uriTemplate '/ai-chats'.
+    # Hint: Add "normalizationContext: { gen_id: false }" to the operation, the resource has no identifier.
+    operations: []
 
     properties:
         message:
@@ -23,17 +22,8 @@ resource:
             openapiContext:
                 example: 'Hello world!'
 
-        conversationReference:
-            type: string
-            writable: true
-            readable: true
-            required: false
-            description: 'Identifies the conversation. Send the value from the previous response to continue the same conversation. Leave it out to start a new one.'
-            openapiContext:
-                example: 'hello-ai-6650f1c2a9b3e'
+        # TODO-3: Declare the "conversationReference" property (type string).
+        # The client SENDS it to continue a conversation and READS it back to learn the reference of a new conversation.
+        # Hint: writable: true, readable: true, required: false. Add a description, it ends up in the OpenAPI documentation.
 
-        answer:
-            type: string
-            writable: false
-            readable: true
-            description: 'The answer of the LLM.'
+        # TODO-4: Declare the "answer" property (type string). It is read-only: readable, not writable.
