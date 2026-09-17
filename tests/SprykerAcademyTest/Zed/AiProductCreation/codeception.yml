@@ -1,0 +1,15 @@
+namespace: SprykerAcademyTest\Zed\AiProductCreation
+
+paths:
+    tests: .
+    data: _data
+    support: _support
+    output: _output
+
+suites:
+    Exercise20:
+        path: Exercise20
+        actor: AiProductCreationTester
+        modules:
+            enabled:
+                - Asserts
