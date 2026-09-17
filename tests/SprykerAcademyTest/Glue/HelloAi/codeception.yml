@@ -1,0 +1,15 @@
+namespace: SprykerAcademyTest\Glue\HelloAi
+
+paths:
+    tests: .
+    data: _data
+    support: _support
+    output: _output
+
+suites:
+    Exercise19:
+        path: Exercise19
+        actor: HelloAiTester
+        modules:
+            enabled:
+                - Asserts

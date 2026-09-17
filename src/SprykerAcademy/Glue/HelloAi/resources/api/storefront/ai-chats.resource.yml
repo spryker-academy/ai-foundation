@@ -1,0 +1,39 @@
+resource:
+    name: AiChats
+    shortName: ai-chats
+    description: 'Sends a message to an LLM through AiFoundation and returns the answer. The conversation reference gives the LLM memory.'
+
+    processor: SprykerAcademy\Glue\HelloAi\Api\Storefront\Processor\AiChatsStorefrontProcessor
+    paginationEnabled: false
+
+    operations:
+        - type: Post
+          uriTemplate: '/ai-chats'
+          description: 'Sends one chat message to the LLM and returns its answer.'
+          normalizationContext:
+              gen_id: false
+
+    properties:
+        message:
+            type: string
+            writable: true
+            readable: true
+            required: true
+            description: 'The message for the LLM.'
+            openapiContext:
+                example: 'Hello world!'
+
+        conversationReference:
+            type: string
+            writable: true
+            readable: true
+            required: false
+            description: 'Identifies the conversation. Send the value from the previous response to continue the same conversation. Leave it out to start a new one.'
+            openapiContext:
+                example: 'hello-ai-6650f1c2a9b3e'
+
+        answer:
+            type: string
+            writable: false
+            readable: true
+            description: 'The answer of the LLM.'
