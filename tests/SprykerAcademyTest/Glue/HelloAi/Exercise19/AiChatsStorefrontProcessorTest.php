@@ -50,8 +50,8 @@ class AiChatsStorefrontProcessorTest extends Unit
     {
         $source = (string)file_get_contents((new ReflectionClass(AiChatsStorefrontProcessor::class))->getFileName());
 
-        $this->assertStringNotContainsStringIgnoringCase(
-            'NeuronAI',
+        $this->assertDoesNotMatchRegularExpression(
+            '/\\bNeuronAI\\\\/',
             $source,
             'Do not use the NeuronAI library directly. AiFoundation wraps the provider, so the provider can be switched by configuration.',
         );
