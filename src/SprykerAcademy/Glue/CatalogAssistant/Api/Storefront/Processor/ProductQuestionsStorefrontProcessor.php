@@ -62,7 +62,10 @@ class ProductQuestionsStorefrontProcessor extends AbstractStorefrontProcessor
         $productAnswerTransfer = $promptResponseTransfer->getStructuredMessage();
 
         if (!$promptResponseTransfer->getIsSuccessful() || !$productAnswerTransfer instanceof ProductAnswerTransfer) {
-            throw new ServiceUnavailableHttpException(null, 'The AI provider did not return a structured answer.');
+            // The AiFoundation errors explain what went wrong, for example which property of the structured answer was missing.
+            $reasons = array_map(static fn ($errorTransfer): string => (string)$errorTransfer->getMessage(), $promptResponseTransfer->getErrors()->getArrayCopy());
+
+            throw new ServiceUnavailableHttpException(null, 'The AI provider did not return a structured answer. ' . implode(' | ', $reasons));
         }
 
         $resource->conversationReference = $conversationReference;
