@@ -1,6 +1,6 @@
 # Spryker Academy — AI Foundation Exercises
 
-Training repository for the AI exercises of the Spryker Academy instructor-led training.
+Training repository (student skeleton branch) for the AI exercises of the Spryker Academy instructor-led training.
 Load a branch with the exercise loader from the `instructor-exercises` repository:
 
 ```bash

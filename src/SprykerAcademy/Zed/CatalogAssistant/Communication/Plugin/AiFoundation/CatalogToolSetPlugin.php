@@ -22,7 +22,8 @@ class CatalogToolSetPlugin extends AbstractPlugin implements ToolSetPluginInterf
      */
     public function getName(): string
     {
-        return CatalogAssistantConstants::TOOL_SET_CATALOG;
+        // TODO-5: Return the tool set name.
+        // Hint: CatalogAssistantConstants::TOOL_SET_CATALOG. The storefront processor asks for the tools by this name.
     }
 
     /**
@@ -34,8 +35,6 @@ class CatalogToolSetPlugin extends AbstractPlugin implements ToolSetPluginInterf
      */
     public function getTools(): array
     {
-        return [
-            $this->getFactory()->createGetProductDetailsToolPlugin(),
-        ];
+        // TODO-6: Return the tools of this set. There is one: $this->getFactory()->createGetProductDetailsToolPlugin()
     }
 }

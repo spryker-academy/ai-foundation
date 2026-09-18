@@ -48,9 +48,10 @@ class ProductQuestionsStorefrontProcessor extends AbstractStorefrontProcessor
         $promptRequestTransfer = (new PromptRequestTransfer())
             ->setAiConfigurationName(CatalogAssistantConstants::AI_CONFIGURATION_CATALOG_ASSISTANT)
             ->setConversationReference($conversationReference)
-            ->addToolSetName(CatalogAssistantConstants::TOOL_SET_CATALOG)
-            ->setStructuredMessage(new ProductAnswerTransfer())
-            ->setMaxRetries(2)
+            // TODO-8: Give the LLM its tools and its answer format:
+            //   addToolSetName(CatalogAssistantConstants::TOOL_SET_CATALOG)   -> the model may call get_product_details
+            //   setStructuredMessage(new ProductAnswerTransfer())             -> the model must answer in that shape
+            //   setMaxRetries(2)                                               -> AiFoundation retries when the answer does not fit the shape
             ->setPromptMessage(
                 (new PromptMessageTransfer())
                     ->setType(AiFoundationConstants::MESSAGE_TYPE_USER)
@@ -65,10 +66,8 @@ class ProductQuestionsStorefrontProcessor extends AbstractStorefrontProcessor
         }
 
         $resource->conversationReference = $conversationReference;
-        $resource->answer = $productAnswerTransfer->getAnswer();
-        $resource->isInStock = $productAnswerTransfer->getIsInStock();
-        $resource->confidence = $productAnswerTransfer->getConfidence();
-        $resource->relatedSkus = $productAnswerTransfer->getRelatedSkus();
+        // TODO-9: Copy the typed answer into the resource: answer, isInStock, confidence, and relatedSkus.
+        // Hint: $productAnswerTransfer is a ProductAnswerTransfer with a getter per property. No JSON parsing needed.
 
         return $resource;
     }

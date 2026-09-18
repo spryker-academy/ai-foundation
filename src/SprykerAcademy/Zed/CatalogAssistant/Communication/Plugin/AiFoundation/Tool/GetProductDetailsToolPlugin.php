@@ -27,7 +27,8 @@ class GetProductDetailsToolPlugin extends AbstractPlugin implements ToolPluginIn
      */
     public function getName(): string
     {
-        return 'get_product_details';
+        // TODO-1: Return the tool name 'get_product_details'.
+        // Hint: snake_case, like a function name. The system prompt in config_ai.php refers to this exact name.
     }
 
     /**
@@ -37,7 +38,10 @@ class GetProductDetailsToolPlugin extends AbstractPlugin implements ToolPluginIn
      */
     public function getDescription(): string
     {
-        return 'Returns the details of one catalog product by SKU: name, description, attributes, and every variant with its attributes, availability, and gross price in cents. Call it before answering any question about a product. Do not answer product questions from memory.';
+        // TODO-2: Describe the tool for the LLM in two or three sentences:
+        //   what it returns (name, description, attributes, every variant with availability and gross price in cents),
+        //   what it needs (a SKU), and when to call it (before answering ANY question about a product).
+        // Hint: The model never sees your PHP code. This text is the whole contract.
     }
 
     /**
@@ -49,14 +53,9 @@ class GetProductDetailsToolPlugin extends AbstractPlugin implements ToolPluginIn
      */
     public function getParameters(): array
     {
-        return [
-            new ToolParameter(
-                name: 'sku',
-                type: 'string',
-                description: 'Abstract or concrete SKU of the product, exactly as given by the customer.',
-                isRequired: true,
-            ),
-        ];
+        // TODO-3: Declare one required parameter named 'sku' of type 'string' with a description.
+        // Hint-1: new ToolParameter(name: '...', type: '...', description: '...', isRequired: true)
+        // Hint-2: The name is the key the business layer reads from $arguments in execute().
     }
 
     /**
@@ -68,7 +67,8 @@ class GetProductDetailsToolPlugin extends AbstractPlugin implements ToolPluginIn
     {
         try {
             /** @var array<string, mixed> $arguments */
-            return $this->getBusinessFactory()->createProductDetailsReader()->getProductDetailsJson((string)($arguments['sku'] ?? ''));
+            // TODO-4: Delegate to the business layer and return its JSON string.
+            // Hint: $this->getBusinessFactory()->createProductDetailsReader()->getProductDetailsJson(...) with the 'sku' argument.
         } catch (Throwable $throwable) {
             $this->getLogger()->error(sprintf('get_product_details failed: %s', $throwable->getMessage()), ['exception' => $throwable]);
 

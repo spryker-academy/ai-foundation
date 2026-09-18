@@ -9,9 +9,14 @@
     -->
     <transfer name="ProductAnswer" strict="true">
         <property name="answer" type="string" description="The answer to the question of the customer, in the language of the question. Based only on the product details returned by the tools."/>
-        <property name="isInStock" type="bool" description="True when at least one variant of the product is available. False otherwise, and also when the product was not found or the availability is unknown. Never null."/>
-        <property name="confidence" type="string" description="How well the product details support the answer: 'high', 'medium', or 'low'. Use 'low' when the tools returned nothing useful."/>
-        <property name="relatedSkus" type="string[]" singular="relatedSku" description="Concrete SKUs that match the question best, for example the variants in the requested size or color. An empty list when none apply, never null."/>
+        <!--
+            TODO-7: Add three more properties. Every description is an instruction for the model, so say what to return
+            when the value is unknown, and that it is never null:
+              - isInStock (bool): true when at least one variant is available, false otherwise or when the product was not found
+              - confidence (string): 'high', 'medium', or 'low'; 'low' when the tools returned nothing useful
+              - relatedSkus (string[], singular="relatedSku"): concrete SKUs that match the question best, an empty list when none apply
+            Hint: property name="relatedSkus" type="string[]" singular="relatedSku"
+        -->
     </transfer>
 
 </transfers>
