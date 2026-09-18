@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace SprykerAcademyTest\Zed\AiProductCreation\Exercise20;
+namespace SprykerAcademyTest\Zed\AiProductCreation\Exercise21;
 
 use Codeception\Test\Unit;
 use Spryker\Zed\AiFoundation\Dependency\Tools\ToolPluginInterface;
 use SprykerAcademy\Zed\AiProductCreation\Communication\Plugin\AiFoundation\Tool\ListTaxSetsToolPlugin;
 
 /**
- * Exercise 20, Task 1: Your first AI tool
+ * Exercise 21, Task 1: Your first AI tool
  *
  * Verifies that ListTaxSetsToolPlugin describes itself correctly to the AI model.
  *
- * Run: vendor/bin/codecept run -c tests/SprykerAcademyTest/Zed/AiProductCreation/ Exercise20
+ * Run: vendor/bin/codecept run -c tests/SprykerAcademyTest/Zed/AiProductCreation/ Exercise21
  */
 class ListTaxSetsToolPluginTest extends Unit
 {

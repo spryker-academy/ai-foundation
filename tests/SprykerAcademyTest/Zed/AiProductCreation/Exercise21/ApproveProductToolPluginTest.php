@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace SprykerAcademyTest\Zed\AiProductCreation\Exercise20;
+namespace SprykerAcademyTest\Zed\AiProductCreation\Exercise21;
 
 use Codeception\Test\Unit;
 use Spryker\Zed\AiFoundation\Dependency\Tools\ToolParameterInterface;
 use SprykerAcademy\Zed\AiProductCreation\Communication\Plugin\AiFoundation\Tool\ApproveProductToolPlugin;
 
 /**
- * Exercise 20, Task 2: Tool parameters
+ * Exercise 21, Task 2: Tool parameters
  *
  * Verifies that ApproveProductToolPlugin declares the parameters the AI model must provide.
  *
- * Run: vendor/bin/codecept run -c tests/SprykerAcademyTest/Zed/AiProductCreation/ Exercise20
+ * Run: vendor/bin/codecept run -c tests/SprykerAcademyTest/Zed/AiProductCreation/ Exercise21
  */
 class ApproveProductToolPluginTest extends Unit
 {
