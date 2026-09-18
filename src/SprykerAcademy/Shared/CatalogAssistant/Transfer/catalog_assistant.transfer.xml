@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<transfers xmlns="spryker:transfer-01" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="spryker:transfer-01 http://static.spryker.com/transfer-01.xsd">
+
+    <!--
+        Structured answer of the LLM. The property descriptions are instructions for the model:
+        AiFoundation turns this transfer into a JSON schema and the model must answer in that shape.
+        Every property must always be filled. AiFoundation rejects an answer with a null property,
+        so the descriptions tell the model what to use when a value is unknown.
+    -->
+    <transfer name="ProductAnswer" strict="true">
+        <property name="answer" type="string" description="The answer to the question of the customer, in the language of the question. Based only on the product details returned by the tools."/>
+        <property name="isInStock" type="bool" description="True when at least one variant of the product is available. False otherwise, and also when the product was not found or the availability is unknown. Never null."/>
+        <property name="confidence" type="string" description="How well the product details support the answer: 'high', 'medium', or 'low'. Use 'low' when the tools returned nothing useful."/>
+        <property name="relatedSkus" type="string[]" singular="relatedSku" description="Concrete SKUs that match the question best, for example the variants in the requested size or color. An empty list when none apply, never null."/>
+    </transfer>
+
+</transfers>

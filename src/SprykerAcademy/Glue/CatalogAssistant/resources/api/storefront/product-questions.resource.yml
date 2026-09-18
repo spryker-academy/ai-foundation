@@ -1,0 +1,67 @@
+resource:
+    name: ProductQuestions
+    shortName: product-questions
+    description: 'Answers a question about one catalog product. The LLM reads the product through a tool and answers in a fixed structure.'
+
+    processor: SprykerAcademy\Glue\CatalogAssistant\Api\Storefront\Processor\ProductQuestionsStorefrontProcessor
+    paginationEnabled: false
+
+    operations:
+        - type: Post
+          uriTemplate: '/product-questions'
+          description: 'Asks one question about a product and returns a structured answer.'
+          normalizationContext:
+              gen_id: false
+
+    properties:
+        sku:
+            type: string
+            writable: true
+            readable: true
+            required: true
+            description: 'Abstract or concrete SKU of the product the question is about.'
+            openapiContext:
+                example: 'M1000785'
+
+        question:
+            type: string
+            writable: true
+            readable: true
+            required: true
+            description: 'The question of the customer.'
+            openapiContext:
+                example: 'Is it in stock and what colors are there?'
+
+        conversationReference:
+            type: string
+            writable: true
+            readable: true
+            required: false
+            description: 'Identifies the conversation. Send the value from the previous response to ask a follow-up question.'
+
+        answer:
+            type: string
+            writable: false
+            readable: true
+            description: 'The answer of the LLM, based on the product details.'
+
+        isInStock:
+            type: bool
+            writable: false
+            readable: true
+            description: 'Whether at least one variant is available. False when the product was not found.'
+
+        confidence:
+            type: string
+            writable: false
+            readable: true
+            description: 'How well the product details support the answer: high, medium, or low.'
+
+        relatedSkus:
+            type: array
+            writable: false
+            readable: true
+            description: 'Concrete SKUs that match the question best.'
+            openapiContext:
+                items:
+                    type: string
