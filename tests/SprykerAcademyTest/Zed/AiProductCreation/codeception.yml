@@ -7,8 +7,8 @@ paths:
     output: _output
 
 suites:
-    Exercise20:
-        path: Exercise20
+    Exercise21:
+        path: Exercise21
         actor: AiProductCreationTester
         modules:
             enabled:

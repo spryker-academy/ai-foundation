@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace SprykerAcademyTest\Zed\AiProductCreation\Exercise20;
+namespace SprykerAcademyTest\Zed\AiProductCreation\Exercise21;
 
 use Codeception\Test\Unit;
 use Generated\Shared\Transfer\BackofficeAssistantPromptRequestTransfer;
@@ -17,13 +17,13 @@ use SprykerAcademy\Zed\AiProductCreation\Communication\AiProductCreationCommunic
 use SprykerAcademy\Zed\AiProductCreation\Communication\Plugin\Agent\ProductCreationAgentPlugin;
 
 /**
- * Exercise 20, Task 4: The agent
+ * Exercise 21, Task 4: The agent
  *
  * Verifies that ProductCreationAgentPlugin builds the right prompt request for AiFoundation
  * and maps the structured AI answer back to the Back Office Assistant.
  * No real AI call is made: the AiFoundation facade is mocked.
  *
- * Run: vendor/bin/codecept run -c tests/SprykerAcademyTest/Zed/AiProductCreation/ Exercise20
+ * Run: vendor/bin/codecept run -c tests/SprykerAcademyTest/Zed/AiProductCreation/ Exercise21
  */
 class ProductCreationAgentPluginTest extends Unit
 {

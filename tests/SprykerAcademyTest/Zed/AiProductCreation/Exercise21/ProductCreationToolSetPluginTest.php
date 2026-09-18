@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace SprykerAcademyTest\Zed\AiProductCreation\Exercise20;
+namespace SprykerAcademyTest\Zed\AiProductCreation\Exercise21;
 
 use Codeception\Test\Unit;
 use Spryker\Zed\AiFoundation\Dependency\Tools\ToolPluginInterface;
@@ -11,11 +11,11 @@ use SprykerAcademy\Zed\AiProductCreation\Communication\AiProductCreationCommunic
 use SprykerAcademy\Zed\AiProductCreation\Communication\Plugin\AiFoundation\ProductCreationToolSetPlugin;
 
 /**
- * Exercise 20, Task 3: The tool set
+ * Exercise 21, Task 3: The tool set
  *
  * Verifies that ProductCreationToolSetPlugin groups all product creation tools under one name.
  *
- * Run: vendor/bin/codecept run -c tests/SprykerAcademyTest/Zed/AiProductCreation/ Exercise20
+ * Run: vendor/bin/codecept run -c tests/SprykerAcademyTest/Zed/AiProductCreation/ Exercise21
  */
 class ProductCreationToolSetPluginTest extends Unit
 {
